@@ -7,5 +7,6 @@
   <description>A 2024-compatible Swashbuckler Rogue subclass that extends the 2024 Rogue core with classic Swashbuckler features.</description>
   <collection>
     <doc href="class-rogue-swash24.xml"/>
+    <doc href="items-swash24.xml"/>
   </collection>
 </source>

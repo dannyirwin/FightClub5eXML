@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compendium version="5" auto_indent="NO">
+  <item>
+    <name>Davix Rapier [5.5e]</name>
+    <detail>martial weapon, homebrew</detail>
+    <type>M</type>
+    <weight>2</weight>
+    <value>25</value>
+    <property>M,F,V,S</property>
+    <dmg1>1d8</dmg1>
+    <dmg2>1d6</dmg2>
+    <dmgType>P</dmgType>
+    <text>A rapier once owned by the famed duelist Carmen Davix.
+
+Davix Pairing (Special): When you wield another weapon in your other hand (such as a dagger), this weapon counts as Light for that turn and you use 1d6 for its damage instead of 1d8.
+
+Finesse: When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.
+
+Proficiency: martial, rapier
+Source:	Custom Homebrew (Swashbuckler 2024 pack)</text>
+    <roll>1d8</roll>
+    <roll>1d6</roll>
+  </item>
+</compendium>

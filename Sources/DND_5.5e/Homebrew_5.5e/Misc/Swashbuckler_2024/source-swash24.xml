@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<source>
+  <name>Rogue Subclass: Swashbuckler (2024)</name>
+  <abbreviation>swash24</abbreviation>
+  <publisher>Homebrew</publisher>
+  <category>Homebrew [5.5e]</category>
+  <description>A 2024-compatible Swashbuckler Rogue subclass that extends the 2024 Rogue core with classic Swashbuckler features.</description>
+  <collection>
+    <doc href="class-rogue-swash24.xml"/>
+  </collection>
+</source>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compendium version="5" auto_indent="NO">
+  <class>
+    <name>Rogue [5.5e]</name>
+    <!-- Rogue Subclass: Swashbuckler (HB) -->
+    <autolevel level="3">
+      <feature optional="YES">
+        <name>Rogue Subclass: Swashbuckler (HB)</name>
+        <text>You focus your training on the art of the blade, relying on speed, elegance, and charm in equal parts. While some warriors are brutes clad in heavy armor, your method of fighting looks almost like a performance. Duelists and pirates typically belong to this archetype.
+	A Swashbuckler excels in single combat and can fight while safely darting away from an opponent.
+
+This 2024-compatible version is designed to be used with Rogue [5.5e] core class progression.
+
+Source:	Custom Conversion (2024-compatible), based on Xanathar's Guide to Everything p. 48</text>
+      </feature>
+      <feature optional="YES">
+        <name>Level 3: Fancy Footwork (Swashbuckler (HB))</name>
+        <text>When you make a melee attack against a creature on your turn, that creature can't make Opportunity Attacks against you for the rest of your turn.
+
+Source:	Custom Conversion (2024-compatible), based on Xanathar's Guide to Everything p. 48</text>
+      </feature>
+      <feature optional="YES">
+        <name>Level 3: Rakish Audacity (Swashbuckler (HB))</name>
+        <text>Your confidence propels you into battle. You gain a bonus to Initiative equal to your Charisma modifier.
+	You also gain an additional way to use Sneak Attack: you don't need Advantage on the attack roll if you are within 5 feet of the target, no other creatures are within 5 feet of you, and you don't have Disadvantage on the attack roll.
+
+Source:	Custom Conversion (2024-compatible), based on Xanathar's Guide to Everything p. 48</text>
+      </feature>
+    </autolevel>
+    <autolevel level="9">
+      <feature optional="YES">
+        <name>Level 9: Panache (Swashbuckler (HB))</name>
+        <text>Your charm becomes extraordinarily beguiling. As an action, make a Charisma (Persuasion) check contested by a creature's Wisdom (Insight) check. The creature must hear you and share a language with you.
+	If you succeed and the creature is hostile, it has Disadvantage on attack rolls against targets other than you and can't make Opportunity Attacks against targets other than you for 1 minute, until one of your allies attacks it or affects it with a spell, or until you and the creature are more than 60 feet apart.
+	If you succeed and the creature isn't hostile, it is Charmed by you for 1 minute. This effect ends early if you or your allies harm it.
+
+Source:	Custom Conversion (2024-compatible), based on Xanathar's Guide to Everything p. 48</text>
+      </feature>
+    </autolevel>
+    <autolevel level="13">
+      <feature optional="YES">
+        <name>Level 13: Elegant Maneuver (Swashbuckler (HB))</name>
+        <text>As a Bonus Action on your turn, you gain Advantage on the next Dexterity (Acrobatics) or Strength (Athletics) check you make during the same turn.
+
+Source:	Custom Conversion (2024-compatible), based on Xanathar's Guide to Everything p. 48</text>
+      </feature>
+    </autolevel>
+    <autolevel level="17">
+      <feature optional="YES">
+        <name>Level 17: Master Duelist (Swashbuckler (HB))</name>
+        <text>Your mastery of the blade lets you turn failure into success in combat. If you miss with an attack roll, you can reroll it with Advantage. Once you do so, you can't use this feature again until you finish a Short or Long Rest.
+
+Source:	Custom Conversion (2024-compatible), based on Xanathar's Guide to Everything p. 48</text>
+      </feature>
+      <counter>
+        <name>Master Duelist</name>
+        <value>1</value>
+        <reset>S</reset>
+        <subclass>Swashbuckler (HB)</subclass>
+      </counter>
+    </autolevel>
+  </class>
+</compendium>

@@ -1,0 +1,23 @@
+---
+description: "Safety guardrails for Fight Club 5e XML edits."
+alwaysApply: true
+---
+
+# Fight Club 5e XML safety rule
+
+This repository is a source-content pipeline, not a typical app codebase.
+
+- Treat `Sources/` and `Collections/` as the source of truth.
+- Do not edit generated compendium outputs in `Compendiums/` directly.
+- Keep changes scoped: do not rename or reorganize large trees unless explicitly requested.
+- Preserve existing file naming patterns (`source-*.xml`, `collection-*.xml`) and relative paths.
+- If a change affects source wiring, update only the required `collection-*.xml` includes.
+
+Before marking XML work complete:
+
+1. Validate touched source compendium files:
+   - `xmllint --noout --schema Utilities/compendium.xsd <path-to-compendium-xml>`
+2. Validate touched collection files (with XInclude):
+   - `xmllint --noout --xinclude --schema Utilities/collection.xsd <path-to-collection-xml>`
+
+When build dependencies are missing (for example `xsltproc`), report that clearly and provide the exact install/build command instead of assuming success.

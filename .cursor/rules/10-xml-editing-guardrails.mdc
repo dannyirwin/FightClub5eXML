@@ -1,0 +1,28 @@
+---
+description: Guardrails for XML source and collection edits
+globs:
+  - Sources/**/*.xml
+  - Collections/**/*.xml
+alwaysApply: false
+---
+
+# XML editing guardrails
+
+- Keep indentation, tag casing, and ordering consistent with neighboring entries.
+- Do not rename IDs, keys, or source references unless all references are updated.
+- Prefer additive edits for new content; avoid restructuring existing XML blocks unless required.
+- When removing content, ensure dependent collection includes are still valid.
+
+# Validation checklist
+
+After XML edits, verify:
+
+1. The modified file remains well-formed XML.
+2. Related collection files still include correct relative paths.
+3. The merge/build command runs for at least one affected collection.
+
+# Safe change patterns
+
+- Add new items by copying the closest existing example and editing only required fields.
+- When changing shared metadata (e.g., source names), search for all references first.
+- Keep text content human-readable; avoid escaping changes unless strictly needed.

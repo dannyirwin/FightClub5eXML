@@ -1,0 +1,30 @@
+---
+description: Core repository context for agent responses
+alwaysApply: true
+---
+
+# Project context
+
+- This repository stores source XML for Fight Club 5e and related apps.
+- Source content lives in `Sources/**` and is assembled through files in `Collections/**`.
+- XML in this repo is **source data**, not the final importable compendium format.
+
+# Important directories
+
+- `Collections/`: entry-point XML files that include multiple sources.
+- `Sources/`: raw source data grouped by system, publisher, and content type.
+- `Utilities/`: XSLT merge logic and helper scripts.
+- `Importables/`: generated/importable output artifacts.
+
+# Build commands
+
+- Build all collections: `./build-collections.sh`
+- Build a specific collection: `./build-collections.sh Collections/<name>.xml`
+- Direct transform example:
+  `xsltproc --xinclude -o Compendiums/output.xml Utilities/merge.xslt Collections/<name>.xml`
+
+# Response style for this repo
+
+- Prefer minimal, targeted XML edits over broad rewrites.
+- Preserve existing schema conventions and naming patterns in nearby files.
+- Call out validation/build steps when changing collection or source structure.

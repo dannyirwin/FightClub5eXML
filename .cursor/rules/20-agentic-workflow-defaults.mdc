@@ -1,0 +1,24 @@
+---
+description: Default agentic workflow for focused, high-signal execution
+alwaysApply: true
+---
+
+# Agentic workflow defaults
+
+- Start by summarizing intent and listing the smallest set of files to inspect.
+- Prefer fast discovery tools (`rg`, targeted file reads) over broad exploration.
+- Before editing, state what will change and why.
+- After editing, run the lightest meaningful verification command.
+- Report outcomes with: changed files, behavior impact, and any remaining risks.
+
+# Collaboration defaults
+
+- Assume the user values direct implementation over long planning.
+- Ask clarifying questions only when a change could reasonably break intent.
+- Keep commits scoped to one logical change.
+
+# Quality bar
+
+- No silent behavior changes: explain tradeoffs when they exist.
+- Keep changes reversible and diff-friendly.
+- Add tests or validation steps when behavior or structure changes.

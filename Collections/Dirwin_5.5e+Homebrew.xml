@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<collection xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- # D&D 5.5e -->
+  <!-- ## Wizards of the Coast 5.5e -->
+  <!-- Official books published by WotC. -->
+  <xi:include href="../Sources/DND_5.5e/WizardsOfTheCoast_5.5e/collection-wizardsofthecoast_5.5e.xml" xpointer="xpointer(/collection/doc)" />
+
+  <!-- ## Dirwin Homebrew 5.5e -->
+  <!-- Custom content for this workspace/user. -->
+  <xi:include href="../Sources/DND_5.5e/Homebrew_5.5e/Misc/Swashbuckler_2024/source-swash24.xml" xpointer="xpointer(/source/collection/doc)" />
+</collection>

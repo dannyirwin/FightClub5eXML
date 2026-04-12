@@ -22,6 +22,7 @@
   <xi:include source="Lizardfolk - Updated for 2024 Edition" href="_Sewage_Orc/Lizardfolk/source-lizardfolk.xml" xpointer="xpointer(/source/collection/doc)" />
   <xi:include source="Minotaur - Updated for 2024 Edition" href="_Sewage_Orc/Minotaur/source-minotaur.xml" xpointer="xpointer(/source/collection/doc)" />
   <xi:include source="Other Homebrew 2024" href="Misc/Other/source-hb24.xml" xpointer="xpointer(/source/collection/doc)" />
+  <xi:include source="Rogue Subclass: Swashbuckler (2024 Conversion)" href="Misc/Swashbuckler_2024/source-swash24.xml" xpointer="xpointer(/source/collection/doc)" />
   <xi:include source="Satyr - Updated for 2024 Edition" href="_Sewage_Orc/Satyr/source-satyr.xml" xpointer="xpointer(/source/collection/doc)" />
   <xi:include source="Skeleton - Updated for 2024 Edition" href="_Sewage_Orc/Skeleton/source-skeleton.xml" xpointer="xpointer(/source/collection/doc)" />
   <xi:include source="Thri-Kreen - Updated for 2024 Edition" href="_Sewage_Orc/Thri-Kreen/source-thrikreen.xml" xpointer="xpointer(/source/collection/doc)" />

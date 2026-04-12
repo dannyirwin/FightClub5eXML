@@ -1,0 +1,40 @@
+---
+description: "Schema and layout conventions for source and collection XML files."
+globs:
+  - "Sources/**/*.xml"
+  - "Collections/**/*.xml"
+alwaysApply: false
+---
+
+# XML schema and layout conventions
+
+Follow these conventions when creating or editing XML in this repository:
+
+## Source content structure
+
+- Compendium content files use:
+  - `<?xml version="1.0" encoding="UTF-8"?>`
+  - `<compendium version="5" auto_indent="NO"> ... </compendium>`
+- Source manifest files use:
+  - `<source>` root
+  - metadata fields (`name`, `abbreviation`, `publisher`, `category`, `description`)
+  - nested `<collection><doc href="..."/></collection>`
+
+## Collection structure
+
+- Collection files use `<collection>` root.
+- When including partial collections, use XInclude:
+  - `xmlns:xi="http://www.w3.org/2001/XInclude"`
+  - `xpointer="xpointer(/collection/doc)"` for collection roots
+  - `xpointer="xpointer(/source/collection/doc)"` for source manifests
+- Use repo-relative paths exactly as existing files do.
+
+## Compatibility and naming
+
+- Keep folder and file names import-safe (avoid spaces/quotes in new technical paths).
+- Keep naming style consistent with nearby files (`source-*.xml`, `collection-*.xml`, `*-<abbrev>.xml`).
+- For subclass or spell-list extensions, rely on existing merge semantics (matching `<name>` entries) rather than duplicating full base definitions.
+
+## Validation expectation
+
+- New or changed XML must be valid against the appropriate schema before completion.

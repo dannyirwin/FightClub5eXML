@@ -57,29 +57,51 @@ After that command has completed, you should see a file called `WotC_only.xml` i
 
 #### Helper Script and Batching
 
-The build-collection files are provided for your convenience to compile all the collections within your Collections directory into compendiums.
+The `build-collections.sh` script compiles one or more collection files from `Collections/` into importable compendiums under `Compendiums/`.
 
 ```bash
-Usage: 
+Usage:
 
-./build-collections.sh [-2024] [-h/-?] [collection_names...]
-  -2024   Remove '[5.5e]' from the generated compendiums.
-  collection_names  Optional list of specific collections to compile.
-  -h/-?   Display this help message.
+./build-collections.sh [-5.5e] [--validate] [-h/-?/--help] [collection_names...]
+  -5.5e             Remove `[5.5e]` from the generated compendiums (optional; see note below).
+  --validate       Validate each output file against `Utilities/compendium.xsd`.
+  collection_names Optional list of specific collections to compile (filenames only, e.g. `WotC_5e_only.xml`).
 
-If no collection names are provided, all XML files in the 'Collections' directory will be processed.
+If no collection names are provided, all XML files in the `Collections` directory are processed.
+
 Examples:
-  ./build-collections.sh                Compile all collections.
-  ./build-collections.sh -2024          Compile all collections and remove '[5.5e]'.
-  ./build-collections.sh collection1.xml  Compile only 'collection1.xml'.
-  ./build-collections.sh -2024 collection1.xml collection2.xml  Compile 'collection1.xml' and 'collection2.xml' and remove '[5.5e]'.
-  ```
+  ./build-collections.sh
+      Compile all collections.
+  ./build-collections.sh -5.5e
+      Compile all collections and strip `[5.5e]` from the output text.
+  ./build-collections.sh --validate Dirwin_5.5e+Homebrew.xml
+      Compile one collection and validate the result.
+  ./build-collections.sh collection1.xml collection2.xml
+      Compile only the listed collections.
+```
 
-For Windows, use `WIN-build-collections.bat  [-2024] [-h/-?] [collection_names...]`.
+**Note:** On Linux and macOS, collections whose names contain `_5.5e` but not `_5e` automatically get a second output file with `_[UNTAGGED]` in the filename, where `[5.5e]` suffixes in names and text are stripped. That gives you both a tagged and an untagged build without passing `-5.5e`.
+
+For Windows, `WIN-build-collections.bat` uses `-2024` for the same “strip 5.5e tags” behavior as documented in that script’s help text.
 
 ## Custom Content
 
-See the [Sources README](SOURCES.md) to learn how to add your own homebrew content or build your own compendium from select source material.
+See the [Sources README](SOURCES.md) for element reference (spells, items, subclasses, and so on) and for building your own compendium from selected sources.
+
+### Adding new content (short workflow)
+
+1. **Author source XML** under `Sources/` using `<compendium version="5" ...>` in each content file. For subclasses, add optional `<feature>` blocks under a `<class>` whose `<name>` matches the base class in your collection (for example `Rogue [5.5e]` for the 2024 Player’s Handbook Rogue). See [SOURCES.md](SOURCES.md) for formats and merge behavior.
+2. **Add a source manifest** (`source-<abbrev>.xml`) with a `<source>` root, metadata, and `<collection><doc href="..."/></collection>` listing your content files.
+3. **Wire the pack into a collection**: either add an `<xi:include>` to a shared homebrew collection such as `Sources/DND_5.5e/Homebrew_5.5e/collection-homebrew_5.5e.xml`, or reference your `source-*.xml` from a custom file in `Collections/` (see [SOURCES.md](SOURCES.md), “Build Your Own Compendium”).
+4. **Build** with `./build-collections.sh <YourCollection>.xml` and import the file produced under `Compendiums/`. Do not edit generated `Compendiums/` files by hand; regenerate after source changes.
+
+Validate changes as you go: compendium fragments with `xmllint --noout --schema Utilities/compendium.xsd <file>`; collection files with `xmllint --noout --xinclude --schema Utilities/collection.xsd <collection-file>` (XInclude matches how the merge runs).
+
+### Example: Rogue Subclass — Swashbuckler (2024 Conversion)
+
+This repo includes a homebrew **Rogue Subclass: Swashbuckler (2024 Conversion)** intended for the 2024 Rogue (`<name>Rogue [5.5e]</name>` in the merged class). It lives under `Sources/DND_5.5e/Homebrew_5.5e/Misc/Swashbuckler_2024/` (`source-swash24.xml`, `class-rogue-swash24.xml`, `items-swash24.xml`). It is wired into `Sources/DND_5.5e/Homebrew_5.5e/collection-homebrew_5.5e.xml` and included in the sample collection `Collections/Dirwin_5.5e+Homebrew.xml`.
+
+**How to use it in the app:** Build a compendium that includes the 2024 Player’s Handbook Rogue **and** this pack (for example `./build-collections.sh Dirwin_5.5e+Homebrew.xml`), then import `Compendiums/Dirwin_5.5e+Homebrew.xml` into Fight Club 5e / Game Master 5e / Character Craft 5.5e. When creating a Rogue, choose the optional subclass labeled **Swashbuckler (HB)** (HB distinguishes this conversion from legacy “Swashbuckler” entries in other sources). The pack also adds an optional homebrew item **Davix Rapier [5.5e]** if you want the sample rapier.
 
 ## Contributing
 

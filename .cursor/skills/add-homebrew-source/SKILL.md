@@ -33,9 +33,10 @@ Create a new homebrew source pack in `Sources/`, wire it into the correct homebr
 5. Use:
    - `xpointer="xpointer(/source/collection/doc)"`
    - relative `href` path from the collection file location.
-6. Validate changed XML:
-   - `xmllint --noout --schema Utilities/compendium.xsd <content-file>`
-   - `xmllint --noout --xinclude --schema Utilities/collection.xsd <collection-file>`
+6. Validate changed XML (this repo ships `Utilities/compendium.xsd` and `Utilities/collection.xsd` only):
+   - Content files (`class-*.xml`, `spells-*.xml`, etc.): `xmllint --noout --schema Utilities/compendium.xsd <content-file>`
+   - Collection files that include your wiring: `xmllint --noout --xinclude --schema Utilities/collection.xsd <collection-file>`
+   - Source manifests (`source-*.xml` use a `<source>` root, not `<compendium>`): check well-formedness with `xmllint --noout <source-file>`, or rely on validation of the built compendium output after merge.
 7. If validation fails, fix errors and re-run validation.
 
 ## Output format
